@@ -15,9 +15,11 @@ echo "installing packages - ${install}"
 sudo apt-get update -qq
 sudo apt-get install -qqy ${install}
 
+#XXX update-alternatives for respective vim installation
+
 echo "setup ~/.vimrc"
 cp -f ~/.vimrc ~/.vimrc-orig_$(date +"%m.%d.%Y_%H.%M.%S")
-cp -f vimrc ~/.vimrc
+cp -f resources/editor/vimrc ~/.vimrc
 
 if [ "${ubuntu_rel}" == "18.04" ]; then
     sed -i 's/pyf/py3f/g' ~/.vimrc

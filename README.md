@@ -5,11 +5,11 @@ vim configuration, including YCM for code completion and clang-format.
 
 Tested on Ubuntu 16.04 and 18.04.
 
-## Install
-About 5 minutes.
+## Bootstrap environment
+This takes about 5 minutes, which is mostly due to building YCM from source.
 
 <pre>
-cd dev-setup && ./dev-setup.sh
+./bootstrap.sh
 </pre>
 
 ## Project Setup
