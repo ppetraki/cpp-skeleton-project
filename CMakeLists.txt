@@ -26,3 +26,7 @@ endif()
 
 add_subdirectory( lib/googletest )
 add_subdirectory( myproject )
+
+enable_testing()
+
+add_subdirectory( test )

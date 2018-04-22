@@ -7,4 +7,4 @@ build-debug/myproject/src/example
 echo " "
 
 echo "running tests"
-cd build-debug/myproject && ctest
+cd build-debug && ctest
