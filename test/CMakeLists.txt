@@ -1,7 +1,5 @@
 cmake_minimum_required( VERSION 3.5 )
 
-include( AddCxxExecutable )
-
 set(SOURCES
   test-myproject.cpp
   test-stdmemory.cpp

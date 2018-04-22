@@ -1,8 +1,8 @@
 #!/bin/sh
 cmake --build build-debug
 
-echo "running example main"
-build-debug/myproject/src/example
+echo "running myproject main"
+build-debug/myproject/myproject
 
 echo " "
 

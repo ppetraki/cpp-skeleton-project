@@ -10,6 +10,9 @@ message( "** CMAKE_CXX_FLAGS_RELEASE=${CMAKE_CXX_FLAGS_RELEASE}" )
 
 list( APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/CmakeModules )
 
+# wrapper for all sorts of goodies
+include( AddCxxExecutable )
+
 message( "** CMAKE_MODULE_PATH      =${CMAKE_MODULE_PATH}" )
 
 set( CMAKE_EXPORT_COMPILE_COMMANDS ON )
@@ -17,16 +20,12 @@ set( CMAKE_DISABLE_IN_SOURCE_BUILD ON )
 set( CMAKE_DISABLE_SOURCE_CHANGES  ON )
 set( CMAKE_COLOR_MAKEFILE          ON )
 
-# dump all our binaries at the top. XXX breaks ctest
-#set( CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR} )
-
 if( "${CMAKE_SOURCE_DIR}" STREQUAL "${CMAKE_BINARY_DIR}" )
     message( SEND_ERROR "In-source builds are not allowed." )
 endif()
 
-add_subdirectory( lib/googletest )
-add_subdirectory( myproject )
-
 enable_testing()
 
+add_subdirectory( lib/googletest )
+add_subdirectory( myproject )
 add_subdirectory( test )
