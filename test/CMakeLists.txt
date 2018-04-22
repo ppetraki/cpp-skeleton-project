@@ -11,7 +11,7 @@ add_cxx11_executable( BUILD_TARGET test-myproject
   SOURCE_LIST ${SOURCES} )
 
 target_include_directories( test-myproject
-    PRIVATE "${MYPROJECT_SOURCE_DIR}/src" )
+    PRIVATE "${MYPROJECT_SOURCE_DIR}" )
 
 #target_link_libraries( test-myproject ... )
 
