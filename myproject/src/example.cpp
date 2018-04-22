@@ -3,5 +3,5 @@
 
 int main( int argc, char* argv[] )
 {
-  std::cout << "Hello from example" << std::endl;
+  std::cout << "Hello from myproject" << std::endl;
 }

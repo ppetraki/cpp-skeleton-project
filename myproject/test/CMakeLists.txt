@@ -2,12 +2,13 @@ cmake_minimum_required( VERSION 3.5 )
 
 include( AddCxxExecutable )
 
-include_directories( "${MYPROJECT_SOURCE_DIR}/src" )
+add_cxx11_executable( BUILD_TARGET test-myproject
+    SOURCE_LIST test-myproject.cpp )
 
-add_cxx11_executable( BUILD_TARGET test_feature
-    SOURCE_LIST test_feature.cpp )
+target_include_directories( test-myproject
+    PRIVATE "${MYPROJECT_SOURCE_DIR}/src" )
 
-#target_link_libraries( test_feature ... )
+#target_link_libraries( test-myproject ... )
 
 
-add_test( test_feature test_feature )
+add_test( test-myproject test-myproject )
