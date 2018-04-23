@@ -2,7 +2,7 @@
 #include <memory>
 #include <functional>
 
-#include "stdmemory.h"
+#include "stdmemory.hpp"
 
 #include "gmock/gmock.h"
 #include "gtest/gtest.h"
