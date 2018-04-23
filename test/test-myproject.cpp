@@ -5,8 +5,8 @@
 #include "gtest/gtest.h"
 // clang-format on
 
-TEST( Example, Example1 )
+TEST( myproject, smoke )
 {
-  std::cout << "Example1" << std::endl;
+  std::cout << "gtest boilerplate" << std::endl;
   EXPECT_TRUE( 1 == 1 );
 }
