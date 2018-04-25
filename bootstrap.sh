@@ -1,21 +1,26 @@
 #!/bin/bash
 
-install="cmake cmake-data build-essential gdb ctags cscope cppman ninja-build python2.7-dev"
+install="cmake cmake-data build-essential gdb ctags cscope cppman ninja-build python2.7-dev lcov gcovr"
 
 ubuntu_rel=$(lsb_release -r | xargs | tr -d 'Release: ')
 
-# for clang-format to work
+editor=""
 if [ "${ubuntu_rel}" == "18.04" ]; then
     install+=" vim clang-format-6.0"
+    editor="vim.nox"
 else
     install+=" vim-nox-py2 clang-format-3.8 "
+    editor="vim.nox-py2"
 fi
 
-echo "installing packages - ${install}"
-sudo apt-get update -qq
-sudo apt-get install -qqy ${install}
+sudo update-alternatives --set editor "/usr/bin/${editor}"
+sudo update-alternatives --set vim    "/usr/bin/${editor}"
 
-#XXX update-alternatives for respective vim installation
+echo "updating apt sources..."
+sudo apt-get update -qq
+
+echo "installing packages - ${install}"
+sudo apt-get install -qqy ${install}
 
 echo "setup ~/.vimrc"
 cp -f ~/.vimrc ~/.vimrc-orig_$(date +"%m.%d.%Y_%H.%M.%S")

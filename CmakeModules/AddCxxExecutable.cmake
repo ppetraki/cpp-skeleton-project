@@ -27,6 +27,21 @@ function( ADD_CXX_EXECUTABLE_IMPL )
                            PRIVATE ${ADD_CXX_EXECUTABLE_IMPL_CXX_FEATURE} )
 
   target_link_libraries( ${ADD_CXX_EXECUTABLE_IMPL_BUILD_TARGET}  gtest gmock_main )
+
+  #
+  # creates a ${TARGET}_coverage executable target
+  #
+  if (CMAKE_BUILD_TYPE STREQUAL "Coverage")
+    set( CMAKE_BUILD_TYPE "Debug" )
+    include(CodeCoverage)
+    APPEND_COVERAGE_COMPILER_FLAGS()
+    setup_target_for_coverage(
+        NAME ${ADD_CXX_EXECUTABLE_IMPL_BUILD_TARGET}_coverage
+        EXECUTABLE ${ADD_CXX_EXECUTABLE_IMPL_BUILD_TARGET}
+        DEPENDENCIES ${ADD_CXX_EXECUTABLE_IMPL_BUILD_TARGET}
+        )
+  endif()
+
 endfunction()
 
 function( ADD_CXX11_EXECUTABLE )
