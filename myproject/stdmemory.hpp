@@ -1,3 +1,5 @@
+#pragma once
+
 //
 // unless we're running C++14 or higher, provide our own version
 //
